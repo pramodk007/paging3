@@ -10,8 +10,10 @@ import com.leveloper.paging3.databinding.ItemSampleHeaderBinding
 import com.leveloper.paging3.databinding.ItemSampleSeparatorBinding
 import java.lang.Exception
 
+// PagingDataAdapter 페이지처리에관련된 모든것 도와줌
 class PagingAdapter : PagingDataAdapter<SampleModel, RecyclerView.ViewHolder>(diffCallback) {
 
+    //넘어온데이터의 타입을 알려주는 메소드
     override fun getItemViewType(position: Int): Int {
         val item = getItem(position) ?: return -1
 
@@ -22,6 +24,8 @@ class PagingAdapter : PagingDataAdapter<SampleModel, RecyclerView.ViewHolder>(di
         }
     }
 
+    //데이터를 어떤형식으로 만들지 틀을 만듦
+    // ViewType이 넘어오면 그걸 가지고 분기해서~~
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
 
@@ -33,6 +37,7 @@ class PagingAdapter : PagingDataAdapter<SampleModel, RecyclerView.ViewHolder>(di
         }
     }
 
+    //틀안에 내가 받은 데이터를 넣어줌.
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = getItem(position)
         if (item != null) {
@@ -63,7 +68,6 @@ class PagingAdapter : PagingDataAdapter<SampleModel, RecyclerView.ViewHolder>(di
 class PagingHeaderViewHolder(
     private val binding: ItemSampleHeaderBinding
 ) : RecyclerView.ViewHolder(binding.root) {
-
     fun bind(data: SampleModel.Header) {
         binding.headerTitle.text = data.title
     }
