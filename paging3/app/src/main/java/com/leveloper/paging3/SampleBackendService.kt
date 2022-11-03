@@ -7,6 +7,7 @@ class SampleBackendService @Inject constructor() {
     /**
      * Sample
      */
+
     fun getPagingData(page: Int): PagingSample {
         val result = mutableListOf<String>()
 

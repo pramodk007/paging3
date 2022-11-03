@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/PC01/Desktop/list/paging3/app/src/main/res/layout/activity_main.xml" value="0.36633663366336633" />
+        <entry key="..\:/Users/PC01/Desktop/list/paging3/app/src/main/res/layout/item_load_state.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/PC01/Desktop/list/paging3/app/src/main/res/layout/item_sample.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/PC01/Desktop/list/paging3/app/src/main/res/layout/item_sample_header.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/PC01/Desktop/list/paging3/app/src/main/res/layout/item_sample_separator.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>

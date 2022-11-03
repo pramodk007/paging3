@@ -11,7 +11,6 @@ import javax.inject.Inject
 class PagingViewModel @Inject constructor(
     private val repository: PagingRepository
 ) : ViewModel() {
-
     // viewmodel 의 사용 이유 : 뷰가 파괴될때 데이터 날라감. 상태관리에 용이하기에
     // viewModel을 사용. 뷰보다 조금 더 오래 살아있음.
 

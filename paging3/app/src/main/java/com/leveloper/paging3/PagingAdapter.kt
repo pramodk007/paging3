@@ -68,6 +68,7 @@ class PagingAdapter : PagingDataAdapter<SampleModel, RecyclerView.ViewHolder>(di
 class PagingHeaderViewHolder(
     private val binding: ItemSampleHeaderBinding
 ) : RecyclerView.ViewHolder(binding.root) {
+
     fun bind(data: SampleModel.Header) {
         binding.headerTitle.text = data.title
     }

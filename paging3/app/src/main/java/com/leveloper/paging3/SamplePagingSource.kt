@@ -6,27 +6,20 @@ import kotlinx.coroutines.delay
 import javax.inject.Inject
 import kotlin.random.Random
 
-class pureum(a : Int){
-
-}
-
-// Dagger가 객체를 주입해야하는 위치 선정???
 // 페이지에 데이터 전송할때 미리 정하는 방식을 이쪽에서 정의
 class SamplePagingSource @Inject constructor(
     private val service: SampleBackendService
 ) : PagingSource<Int, String>() {
-    // 서버에 몇번째데이터를 보낼때 알려주는 데이터 타입
-    // 내가 서버에다 요청했을때 리턴값의 데이터 타입
+    // int 서버에 몇번째데이터를 보낼때 알려주는 데이터 타입
+    // string 내가 서버에다 요청했을때 리턴값의 데이터 타입
 
-
-    // load는 params를 바탕으로 페이지의 데이터를 반환하게 됨
     // load의 파라미터로 params key 값이 페이지 정보임, loadSize도 가지고있음.
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, String> {
         //리턴을 통해 정상일 경우 LoadResult.Page.
         return try {
             delay(500)
 
-            // 에러 발생 !
+            // 에러 발생!
             if (Random.nextFloat() < 0.5) {
                 throw Exception("error !!!")
             }
@@ -34,9 +27,11 @@ class SamplePagingSource @Inject constructor(
             // 스타트 인덱스는 유동적으로
             val next = params.key ?: 0
 
-            val response = service.getPagingData(next)
             // 서비스 받는 쪽 (레드로핏)
+            val response = service.getPagingData(next)
 
+
+            // 정상일 경우 해당 객체를 반환함
             LoadResult.Page(
                 data = response.data,
                 prevKey = if (next == 0) null else next - 1,
